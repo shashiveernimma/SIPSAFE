@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>SIPSAFE</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="title">SIPSAFE</h1>
+
+<p class="subtitle">Smart Microplastic Detection System</p>
+
+<div class="upload-card">
+
+<input type="file" id="imageInput">
+
+<button onclick="uploadImage()" class="analyze-btn">Analyze</button>
+
+</div>
+
+<div class="result-card">
+
+<h2 id="result">Upload an image and click Analyze</h2>
+
+</div>
+
+<div class="image-card">
+
+<h3>Processed Grayscale Image</h3>
+
+<img id="grayImage" class="gray-image">
+
+</div>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+
+</html>
