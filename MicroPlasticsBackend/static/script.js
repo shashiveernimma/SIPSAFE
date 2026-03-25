@@ -58,6 +58,5 @@ function uploadImage() {
     })
     .catch(error => {
         console.error(error);
-        alert("Backend error. Check terminal.");
     });
 }
