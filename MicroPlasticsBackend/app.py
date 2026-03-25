@@ -134,7 +134,7 @@ def analyze():
 
     except Exception as e:
         print("ERROR:", e)
-        return jsonify({"error": "Backend processing failed"}), 500
+        return jsonify({"error": "Backend processing failed"})
 
 
 # ===============================
