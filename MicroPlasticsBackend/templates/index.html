@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <title>SIPSAFE</title>
-
 <link rel="stylesheet" href="/static/style.css">
-
 </head>
 
 <body>
@@ -13,35 +10,45 @@
 <div class="container">
 
 <h1 class="title">SIPSAFE</h1>
-
 <p class="subtitle">Smart Microplastic Detection System</p>
 
 <div class="upload-card">
-
 <input type="file" id="imageInput">
-
 <button onclick="uploadImage()" class="analyze-btn">Analyze</button>
-
 </div>
 
 <div class="result-card">
-
 <h2 id="result">Upload an image and click Analyze</h2>
-
 </div>
 
-<div class="image-card">
+<!-- FLEX SECTION -->
+<div class="analysis-section">
 
-<h3>Processed Grayscale Image</h3>
+    <!-- LEFT IMAGE -->
+    <div class="image-card">
+        <h3>Processed Image</h3>
+        <img id="grayImage" class="gray-image">
+    </div>
 
-<img id="grayImage" class="gray-image">
+    <!-- RIGHT METER -->
+    <div class="meter-card">
 
-</div>
+        <h3>Water Quality</h3>
+
+        <div class="circle-meter">
+            <svg>
+                <circle cx="60" cy="60" r="50"></circle>
+                <circle cx="60" cy="60" r="50" id="progressCircle"></circle>
+            </svg>
+
+            <div id="meterText" class="circle-text">--</div>
+        </div>
+
+    </div>
 
 </div>
 
 <script src="/static/script.js"></script>
 
 </body>
-
 </html>
