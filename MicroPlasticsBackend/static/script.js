@@ -3,8 +3,7 @@ function uploadImage() {
     const input = document.getElementById("imageInput");
 
     if (input.files.length === 0) {
-        alert("Select image first");
-        return;
+        return; // removed alert also
     }
 
     const file = input.files[0];
@@ -25,13 +24,12 @@ function uploadImage() {
         document.getElementById("grayImage").src =
             data.grayscale_image + "?t=" + new Date().getTime();
 
-        // ✅ meter
         let circle = document.getElementById("progressCircle");
         let text = document.getElementById("meterText");
 
         let percent = 0;
 
-        // 🔴 MUST CHECK FIRST
+        // 🔴 NOT SAFE (FIRST)
         if (data.water_status.includes("NOT SAFE")) {
             percent = 100;
             circle.style.stroke = "red";
@@ -60,7 +58,7 @@ function uploadImage() {
 
     })
     .catch(err => {
-        console.error(err);
-        alert("Something went wrong");
+        // ❌ completely removed popup
+        console.log("Error ignored:", err);
     });
 }
