@@ -1,135 +1,130 @@
 body {
+    font-family: Arial;
+    margin: 0;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
 
-font-family: Arial, sans-serif;
-
-background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-
-margin: 0;
-
-padding: 0;
-
-color: white;
-
-text-align: center;
-
+    background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center;
+    background-size: cover;
 }
 
+/* 🌴 Coconut trees */
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:
+        url("https://i.imgur.com/6IUbEMx.png") left bottom no-repeat,
+        url("https://i.imgur.com/6IUbEMx.png") right bottom no-repeat;
+    background-size: 180px;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* container */
 .container {
-
-width: 90%;
-
-max-width: 900px;
-
-margin: auto;
-
-padding-top: 40px;
-
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 40px;
 }
 
+/* title */
 .title {
-
-font-size: 60px;
-
-font-weight: bold;
-
-letter-spacing: 4px;
-
-color: #00e5ff;
-
-margin-bottom: 10px;
-
+    font-size: 60px;
+    color: cyan;
+    text-shadow: 0 0 20px cyan;
 }
 
-.subtitle {
-
-font-size: 20px;
-
-opacity: 0.8;
-
-margin-bottom: 40px;
-
+/* cards */
+.upload-card,
+.result-card,
+.image-card,
+.meter-card {
+    background: rgba(0,0,50,0.6);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    margin: 20px 0;
 }
 
-.upload-card {
-
-background: rgba(255,255,255,0.1);
-
-padding: 30px;
-
-border-radius: 15px;
-
-margin-bottom: 30px;
-
-box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
-
+/* layout */
+.analysis-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.analyze-btn {
-
-margin-top: 15px;
-
-padding: 12px 30px;
-
-font-size: 18px;
-
-border: none;
-
-border-radius: 8px;
-
-background: #00e5ff;
-
-color: black;
-
-font-weight: bold;
-
-cursor: pointer;
-
-transition: 0.3s;
-
-}
-
-.analyze-btn:hover {
-
-background: #00bcd4;
-
-transform: scale(1.05);
-
-}
-
-.result-card {
-
-background: rgba(255,255,255,0.1);
-
-padding: 25px;
-
-border-radius: 15px;
-
-margin-bottom: 30px;
-
-box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
-
-}
-
+/* image */
 .image-card {
-
-background: rgba(255,255,255,0.1);
-
-padding: 25px;
-
-border-radius: 15px;
-
-box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
-
+    flex: 2;
 }
 
 .gray-image {
+    width: 100%;
+    border-radius: 10px;
+    border: 3px solid cyan;
+}
 
-margin-top: 15px;
+/* meter smaller */
+.meter-card {
+    flex: 1;
+}
 
-max-width: 100%;
+/* circular meter */
+.circle-meter {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+}
 
-border-radius: 10px;
+circle {
+    fill: none;
+    stroke-width: 10;
+    stroke: rgba(255,255,255,0.2);
+}
 
-border: 3px solid #00e5ff;
+#progressCircle {
+    stroke: cyan;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    transition: 0.5s;
+}
 
+.circle-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+/* button */
+.analyze-btn {
+    padding: 12px 30px;
+    border-radius: 10px;
+    background: linear-gradient(45deg,#00f7ff,#00c6ff);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 💧 splash only on button */
+.analyze-btn:active::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: splash 0.6s ease-out;
+}
+
+@keyframes splash {
+    0% { transform: scale(0); opacity:1;}
+    100% { transform: scale(15); opacity:0;}
 }
